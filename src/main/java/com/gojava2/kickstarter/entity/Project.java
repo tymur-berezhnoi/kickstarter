@@ -1,5 +1,6 @@
 package com.gojava2.kickstarter.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,8 +44,8 @@ public class Project {
     @JoinColumn(name = "user_id")
     private User user;
 	
-	@OneToOne
-	@JoinColumn(name = "stus_id")
+	@OneToOne(cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "status_id")
 	private ProjectStatus status;
 	
 	public Project() {}

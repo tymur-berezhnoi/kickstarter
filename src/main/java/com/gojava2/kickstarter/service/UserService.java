@@ -50,4 +50,12 @@ public class UserService {
 		
 		userRepository.save(user);
 	}
+
+	public void delet(int id) {
+		userRepository.delete(id);
+	}
+
+	public User findOne(String userName) {
+		return userRepository.findByName(userName);
+	}
 }
