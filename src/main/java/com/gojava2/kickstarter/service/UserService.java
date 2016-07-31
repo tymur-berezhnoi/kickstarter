@@ -18,20 +18,20 @@ import com.gojava2.kickstarter.repository.UserRepository;
 @Service
 @Transactional
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private RoleRepository roleRepository;
-	
+
 	@Autowired
 	private ProjectRepository projectRepository;
-	
+
 	public List<User> findAll() {
 		return userRepository.findAll();
 	}
-	
+
 	@Transactional
 	public User getUser(String name) {
 		User user = userRepository.findByName(name);
@@ -43,11 +43,11 @@ public class UserService {
 		user.setEnabled(true);
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		user.setPassword(encoder.encode(user.getPassword()));
-		
+
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleRepository.findByName("ROLE_USER"));
 		user.setRoles(roles);
-		
+
 		userRepository.save(user);
 	}
 

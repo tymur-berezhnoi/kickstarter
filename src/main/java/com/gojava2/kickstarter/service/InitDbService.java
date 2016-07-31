@@ -49,7 +49,7 @@ public class InitDbService {
 	public void insert() {
 		Role roleUser = new Role("ROLE_USER");
 		roleRepository.save(roleUser);
-		
+
 		Role roleAdmin = new Role("ROLE_ADMIN");
 		roleRepository.save(roleAdmin);
 		

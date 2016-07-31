@@ -15,9 +15,9 @@ public class QuoteService {
 	private QuoteRepository quoteRepository;
 	
 	public Quote getRandomQuote() {
-        Random random = new Random();
+//        Random random = new Random();
         
-        int index = random.nextInt((int) quoteRepository.count());
-        return quoteRepository.findOne(index + 1);
+//        int index = random.nextInt((int) quoteRepository.count());
+        return new Quote("Welcome to the Jungle", "Guns and roses");
 	}
 }

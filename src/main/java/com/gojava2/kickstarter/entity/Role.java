@@ -2,22 +2,19 @@ package com.gojava2.kickstarter.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 import org.springframework.data.annotation.PersistenceConstructor;
 
 @Entity
+@Table(name = "ROLE")
 public class Role {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(unique = true, nullable = false, length = 15)
+	@Column(nullable = false, length = 15)
 	private String name;
 	
 	@ManyToMany(mappedBy = "roles")
