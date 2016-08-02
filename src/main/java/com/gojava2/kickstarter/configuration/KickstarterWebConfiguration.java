@@ -8,9 +8,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles3.TilesView;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 /**
@@ -23,9 +21,8 @@ public class KickstarterWebConfiguration extends WebMvcConfigurerAdapter {
 
 
     @Bean
-    TilesViewResolver viewResolver(){
-        TilesViewResolver viewResolver = new TilesViewResolver();
-        return viewResolver;
+    TilesViewResolver viewResolver() {
+        return new TilesViewResolver();
     }
 
     @Override
