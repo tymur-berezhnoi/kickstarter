@@ -1,6 +1,6 @@
 <%@ include file="../layout/taglib.jsp" %>
 <h4>
-	<c:out value='\"${quote.content}\" ${quote.copyrightSymbol}${quote.author}' />
+	<c:out value='\"${quote.content}\" ${quote.author}' />
 </h4>
 <table class="table table-bordered table-hover table-striped">
 	<tbody>

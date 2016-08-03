@@ -19,7 +19,7 @@
 
         <jetty.version>9.2.11.v20150529</jetty.version>
         <jetty.scann.time>10</jetty.scann.time>
-        <context.path>/Kickstarter</context.path>
+        <context.path>/kickstarter</context.path>
         <jetty.port>8080</jetty.port>
     </properties>
 

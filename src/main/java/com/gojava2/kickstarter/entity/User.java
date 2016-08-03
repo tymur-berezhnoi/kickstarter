@@ -19,94 +19,100 @@ import org.springframework.data.annotation.PersistenceConstructor;
 @Entity
 @Table(name = "users")
 public class User {
-	
-	@Id
-	@GeneratedValue
-	private Integer id;
-	
-	@Size(min = 3, max = 25, message = "Name must be at from 3 to 25 characters!")
-	@NotNull(message = "Name must exist!")
-	@UniqueUsername(message = "User alredy exists")
-	private String name;
-	
-	@Email
-	@NotNull(message = "Email must exist!")
-	private String email;
-	
-	@Size(min = 5, message = "Password must be fromt 5 to 30 characters!")
-	@NotNull(message = "Password must exist!")
-	private String password;
-	
-	private boolean enabled;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    @Size(min = 3, max = 25, message = "Name must be at from 3 to 25 characters!")
+    @NotNull(message = "Name must exist!")
+    @UniqueUsername(message = "User alredy exists")
+    private String name;
+
+    @Email
+    @NotNull(message = "Email must exist!")
+    private String email;
+
+    @Size(min = 5, message = "Password must be fromt 5 to 30 characters!")
+    @NotNull(message = "Password must exist!")
+    private String password;
+
+    private boolean enabled;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<Project> projects;
-	
-	@ManyToMany
-	private List<Role> roles;
-	
-	public User() {}
-	
-	@PersistenceConstructor
-	public User(String name, String email, String password) {
-		this.name = name;
-		this.email = email;
-		this.password = password;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    @ManyToMany
+    private List<Role> roles;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public User() {
+    }
 
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
+    @PersistenceConstructor
+    public User(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
-	public void setProjects(List<Project> projects) {
-		this.projects = projects;
-	}
-	
-	public List<Project> getProjects() {
-		return projects;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
-	
-	public List<Role> getRoles() {
-		return roles;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setEnabled(boolean enabled) {
-		this.enabled = enabled;
-	}
-	
-	public boolean isEnabled() {
-		return enabled;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    @Override
+    public String toString() {
+        return "{id: " + id + ", name: " + name + ", email: " + email;
+    }
 }
