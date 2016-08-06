@@ -16,116 +16,116 @@ import org.springframework.data.annotation.PersistenceConstructor;
 @Entity
 @Table(name = "projects")
 public class Project {
-	
-	@Id
-	@GeneratedValue
-	private Integer id;
-	
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
-	
-	@Transient
-	private final char symbolDollar = 36;
-	
-	@Column(nullable = false, length = 100)
-	private String name;
-	
-	@Column(length = 500)
-	private String description;
-	
-	@Column(length = 500)
-	private String story;
-	
-	@Column(length = 250)
-	private String link;
-	
-	@ManyToOne
+
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @Column(nullable = false, length = 100)
+    private String name;
+
+    @Column(length = 500)
+    private String description;
+
+    @Column(length = 500)
+    private String story;
+
+    @Column(length = 250)
+    private String link;
+
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-	
-	@OneToOne(cascade = CascadeType.REMOVE)
-	@JoinColumn(name = "status_id")
-	private ProjectStatus status;
-	
-	public Project() {}
-	
-	@PersistenceConstructor
-	public Project(String name, String description, String story, String link, Category category, ProjectStatus status, User user) {
-		this.name = name;
-		this.description = description;
-		this.story = story;
-		this.link = link;
-		this.category = category;
-		this.status = status;
-		this.user = user;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
+    @OneToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "status_id")
+    private ProjectStatus status;
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getName() {
-		return name;
-	}
+    public Project() {
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	public String getDescription() {
-		return description;
-	}
+    @PersistenceConstructor
+    public Project(String name, String description, String story, String link, Category category, ProjectStatus status, User user) {
+        this.name = name;
+        this.description = description;
+        this.story = story;
+        this.link = link;
+        this.category = category;
+        this.status = status;
+        this.user = user;
+    }
 
-	public void setStory(String story) {
-		this.story = story;
-	}
-	
-	public String getStory() {
-		return story;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setLink(String link) {
-		this.link = link;
-	}
-	
-	public String getLink() {
-		return link;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-		
-	public Category getCategory() {
-		return category;
-	}
-	
-	public char getSymbolDollar() {
-		return symbolDollar;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
-	public User getUser() {
-		return user;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setStatus(ProjectStatus status) {
-		this.status = status;
-	}
-	
-	public ProjectStatus getStatus() {
-		return status;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setStory(String story) {
+        this.story = story;
+    }
+
+    public String getStory() {
+        return story;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setStatus(ProjectStatus status) {
+        this.status = status;
+    }
+
+    public ProjectStatus getStatus() {
+        return status;
+    }
+
+    @Override
+    public String toString() {
+        return "{id: " + id + ", category: " + category + ", name: " + name
+                + ", description: " + description + ", story: " + story + ", link: " + link + "}";
+    }
 }

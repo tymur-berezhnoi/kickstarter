@@ -23,9 +23,6 @@ public class Quote {
 	@Column(length = 30)
 	private String author;
 	
-	@Transient
-	private final char COPIRIGHT_SYMBOL = 169;
-	
 	public Quote() {}
 	
 	@PersistenceConstructor
@@ -58,7 +55,8 @@ public class Quote {
 		this.author = author;
 	}
 
-	public char getCopyrightSymbol() {
-		return COPIRIGHT_SYMBOL;
+	@Override
+	public String toString() {
+		return "{id: " + id + ", content: " + content + ", author: " + author + "}";
 	}
 }

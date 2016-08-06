@@ -50,4 +50,9 @@ public class Role {
 	public List<User> getUsers() {
 		return users;
 	}
+
+	@Override
+	public String toString() {
+		return "{id: " + id + ", roleName: " + name + "}";
+	}
 }
